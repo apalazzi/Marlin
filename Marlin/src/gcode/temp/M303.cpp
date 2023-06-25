@@ -59,7 +59,7 @@ void GcodeSuite::M303() {
     }
   #endif
 
-  const heater_id_t hid = (heater_id_t)parser.intval('E');
+  const heater_id_t hid = (heater_id_t)parser.intval('E', SHRT_MIN);
   celsius_t default_temp;
   switch (hid) {
     OPTCODE(PIDTEMP,        case 0 ... HOTENDS - 1: default_temp = PREHEAT_1_TEMP_HOTEND;  break)
